@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="rasmt">
+  <link
+    name="Base_Link">
+    <inertial>
+      <origin
+        xyz="-0.000297002857922682 0.0964721185617698 -0.000361033370053684"
+        rpy="0 0 0" />
+      <mass
+        value="1.88031044620482" />
+      <inertia
+        ixx="0.00503302470272442"
+        ixy="0.000343817346410954"
+        ixz="-4.74990755448368E-06"
+        iyy="0.00337962410057753"
+        iyz="-2.3099255620051E-05"
+        izz="0.00405858207282473" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 3.1416" />
+      <geometry>
+        <mesh
+          filename="package://robot_arm/meshes/Base_Link.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_arm/meshes/Base_Link.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="Fork_1">
+    <inertial>
+      <origin
+        xyz="0.0472051139085306 0.00208890925682996 0.0557265410642575"
+        rpy="0 0 0" />
+      <mass
+        value="1.12472202892859" />
+      <inertia
+        ixx="0.00367804533572758"
+        ixy="1.04277925521833E-05"
+        ixz="-0.00149971410403071"
+        iyy="0.00415208849477534"
+        iyz="-5.67049464176624E-06"
+        izz="0.0041832353455649" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_arm/meshes/Fork_1.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://viewer/meshes/collision/Fork_1.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rot_1"
+    type="revolute">
+    <origin
+      xyz="0 0 0.201360610569537"
+      rpy="0 0 -3.1416" />
+    <parent
+      link="Base_Link" />
+    <child
+      link="Fork_1" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.1416"
+      upper="3.1416"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="Link_1">
+    <inertial>
+      <origin
+        xyz="0.00186712264682627 -0.000412152188777604 0.0516389446895805"
+        rpy="0 0 0" />
+      <mass
+        value="1.58688811563124" />
+      <inertia
+        ixx="0.00315699373090845"
+        ixy="2.84713820858537E-05"
+        ixz="7.01601261191721E-05"
+        iyy="0.00343729241263707"
+        iyz="-0.000101485203138902"
+        izz="0.00125534890134052" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_arm/meshes/Link_1.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://viewer/meshes/collision/Link_1.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rot_2"
+    type="revolute">
+    <origin
+      xyz="0.11 0 0.115"
+      rpy="0 0 0" />
+    <parent
+      link="Fork_1" />
+    <child
+      link="Link_1" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="3.1415"
+      upper="-1.5708"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="Fork_2">
+    <inertial>
+      <origin
+        xyz="0.0472051139085305 0.00208890925682995 0.0557265410642578"
+        rpy="0 0 0" />
+      <mass
+        value="1.12472202892859" />
+      <inertia
+        ixx="0.00367804533572757"
+        ixy="1.04277925521844E-05"
+        ixz="-0.00149971410403071"
+        iyy="0.00415208849477533"
+        iyz="-5.67049464176452E-06"
+        izz="0.00418323534556488" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_arm/meshes/Fork_2.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://viewer/meshes/collision/Fork_2.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rot_3"
+    type="revolute">
+    <origin
+      xyz="0.001 0 0.156"
+      rpy="0 0 0" />
+    <parent
+      link="Link_1" />
+    <child
+      link="Fork_2" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.1416"
+      upper="3.1416"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="Link_2">
+    <inertial>
+      <origin
+        xyz="-0.000432876513268232 0.000412152066707638 -0.0516389448183734"
+        rpy="0 0 0" />
+      <mass
+        value="1.58688811045173" />
+      <inertia
+        ixx="0.003156993699861"
+        ixy="-2.84713874261319E-05"
+        ixz="-7.01601002852382E-05"
+        iyy="0.00343729240547398"
+        iyz="-0.000101485187086937"
+        izz="0.00125534888404072" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_arm/meshes/Link_2.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://viewer/meshes/collision/Link_2.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rot_4"
+    type="revolute">
+    <origin
+      xyz="0.11 0 0.115"
+      rpy="0 0 0" />
+    <parent
+      link="Fork_2" />
+    <child
+      link="Link_2" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="3.1416"
+      upper="-1.5708"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="Fork_3">
+    <inertial>
+      <origin
+        xyz="0.0472051139085305 0.00208890925682995 0.0557265410642577"
+        rpy="0 0 0" />
+      <mass
+        value="1.12472202892859" />
+      <inertia
+        ixx="0.00367804533572757"
+        ixy="1.04277925521856E-05"
+        ixz="-0.00149971410403071"
+        iyy="0.00415208849477532"
+        iyz="-5.67049464176534E-06"
+        izz="0.00418323534556488" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_arm/meshes/Fork_3.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://viewer/meshes/collision/Fork_3.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rot_5"
+    type="revolute">
+    <origin
+      xyz="-0.000 0 0.156"
+      rpy="0 0 0" />
+    <parent
+      link="Link_2" />
+    <child
+      link="Fork_3" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.1416"
+      upper="3.1416"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="Dock_Link">
+    <inertial>
+      <origin
+        xyz="-9.7531539777207E-06 -0.000888494418875867 0.0342332199538358"
+        rpy="0 0 0" />
+      <mass
+        value="1.26942368542312" />
+      <inertia
+        ixx="0.00147695259043549"
+        ixy="-2.66894744420299E-05"
+        ixz="-4.40871314563273E-05"
+        iyy="0.00135500487881796"
+        iyz="-3.19001462979333E-05"
+        izz="0.00087582892706912" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 1.5708" />
+      <geometry>
+        <mesh
+          filename="package://robot_arm/meshes/Dock_Link.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://viewer/meshes/collision/Dock_Link.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rot_6"
+    type="revolute">
+    <origin
+      xyz="0.11 0 0.115"
+      rpy="0 0 0" />
+    <parent
+      link="Fork_3" />
+    <child
+      link="Dock_Link" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="3.1416"
+      upper="-1.5708"
+      effort="0"
+      velocity="0" />
+  </joint>
+<link name="Tool_Base"/>
+  <joint
+    name="tool"
+    type="fixed">
+    <origin
+      xyz="0 0 0.115"
+      rpy="0 0 0" />
+    <parent
+      link="Dock_Link" />
+    <child
+      link="Tool_Base" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+</robot>

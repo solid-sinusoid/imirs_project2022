@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <robot name="rasmt">
   <link
-    name="Base_Link">
+    name="base_link">
     <inertial>
       <origin
         xyz="-0.000297002857922682 0.0964721185617698 -0.000361033370053684"
@@ -19,7 +19,7 @@
     <visual>
       <origin
         xyz="0 0 0"
-        rpy="0 0 3.1416" />
+        rpy="0 0 0" />
       <geometry>
         <mesh
           filename="package://robot_arm/meshes/Base_Link.stl" />
@@ -41,7 +41,7 @@
     </collision>
   </link>
   <link
-    name="Fork_1">
+    name="link1">
     <inertial>
       <origin
         xyz="0.0472051139085306 0.00208890925682996 0.0557265410642575"
@@ -81,15 +81,15 @@
     </collision>
   </link>
   <joint
-    name="rot_1"
+    name="joint1"
     type="revolute">
     <origin
       xyz="0 0 0.201360610569537"
-      rpy="0 0 -3.1416" />
+      rpy="0 0 0" />
     <parent
-      link="Base_Link" />
+      link="base_link" />
     <child
-      link="Fork_1" />
+      link="link1" />
     <axis
       xyz="0 0 1" />
     <limit
@@ -99,7 +99,7 @@
       velocity="0" />
   </joint>
   <link
-    name="Link_1">
+    name="link2">
     <inertial>
       <origin
         xyz="0.00186712264682627 -0.000412152188777604 0.0516389446895805"
@@ -139,25 +139,25 @@
     </collision>
   </link>
   <joint
-    name="rot_2"
+    name="joint2"
     type="revolute">
     <origin
       xyz="0.11 0 0.115"
       rpy="0 0 0" />
     <parent
-      link="Fork_1" />
+      link="link1" />
     <child
-      link="Link_1" />
+      link="link2" />
     <axis
       xyz="0 1 0" />
     <limit
-      lower="3.1415"
-      upper="-1.5708"
+      lower="-1.5708"
+      upper="3.1415"
       effort="0"
       velocity="0" />
   </joint>
   <link
-    name="Fork_2">
+    name="link3">
     <inertial>
       <origin
         xyz="0.0472051139085305 0.00208890925682995 0.0557265410642578"
@@ -197,15 +197,15 @@
     </collision>
   </link>
   <joint
-    name="rot_3"
+    name="joint3"
     type="revolute">
     <origin
       xyz="0.001 0 0.156"
       rpy="0 0 0" />
     <parent
-      link="Link_1" />
+      link="link2" />
     <child
-      link="Fork_2" />
+      link="link3" />
     <axis
       xyz="0 0 1" />
     <limit
@@ -215,7 +215,7 @@
       velocity="0" />
   </joint>
   <link
-    name="Link_2">
+    name="link4">
     <inertial>
       <origin
         xyz="-0.000432876513268232 0.000412152066707638 -0.0516389448183734"
@@ -255,25 +255,25 @@
     </collision>
   </link>
   <joint
-    name="rot_4"
+    name="joint4"
     type="revolute">
     <origin
       xyz="0.11 0 0.115"
       rpy="0 0 0" />
     <parent
-      link="Fork_2" />
+      link="link3" />
     <child
-      link="Link_2" />
+      link="link4" />
     <axis
       xyz="0 1 0" />
     <limit
-      lower="3.1416"
-      upper="-1.5708"
+      lower="-1.5708"
+      upper="3.1416"
       effort="0"
       velocity="0" />
   </joint>
   <link
-    name="Fork_3">
+    name="link5">
     <inertial>
       <origin
         xyz="0.0472051139085305 0.00208890925682995 0.0557265410642577"
@@ -313,15 +313,15 @@
     </collision>
   </link>
   <joint
-    name="rot_5"
+    name="joint5"
     type="revolute">
     <origin
       xyz="-0.000 0 0.156"
       rpy="0 0 0" />
     <parent
-      link="Link_2" />
+      link="link4" />
     <child
-      link="Fork_3" />
+      link="link5" />
     <axis
       xyz="0 0 1" />
     <limit
@@ -331,7 +331,7 @@
       velocity="0" />
   </joint>
   <link
-    name="Dock_Link">
+    name="link6">
     <inertial>
       <origin
         xyz="-9.7531539777207E-06 -0.000888494418875867 0.0342332199538358"
@@ -371,24 +371,24 @@
     </collision>
   </link>
   <joint
-    name="rot_6"
+    name="joint6"
     type="revolute">
     <origin
       xyz="0.11 0 0.115"
       rpy="0 0 0" />
     <parent
-      link="Fork_3" />
+      link="link5" />
     <child
-      link="Dock_Link" />
+      link="link6" />
     <axis
       xyz="0 1 0" />
     <limit
-      lower="3.1416"
-      upper="-1.5708"
+      lower="-1.5708"
+      upper="3.1416"
       effort="0"
       velocity="0" />
   </joint>
-<link name="Tool_Base"/>
+<link name="tool0"/>
   <joint
     name="tool"
     type="fixed">
@@ -396,9 +396,9 @@
       xyz="0 0 0.115"
       rpy="0 0 0" />
     <parent
-      link="Dock_Link" />
+      link="link6" />
     <child
-      link="Tool_Base" />
+      link="tool0" />
     <axis
       xyz="0 1 0" />
   </joint>

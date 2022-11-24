@@ -5,7 +5,7 @@
 <robot
   name="gripper">
   <link
-    name="Grip_Base">
+    name="gripper_base">
     <inertial>
       <origin
         xyz="0.000364704367134063 0.0336387482840125 0.0593891203954369"
@@ -45,7 +45,7 @@
     </collision>
   </link>
   <link
-    name="Grip_Rotator">
+    name="glink1">
     <inertial>
       <origin
         xyz="6.79110135283868E-11 -3.80956832067611E-10 0.00775394473595793"
@@ -85,25 +85,23 @@
     </collision>
   </link>
   <joint
-    name="grip_rot"
-    type="revolute">
+    name="gjoint1"
+    type="continuous">
     <origin
       xyz="0 0 0.10861"
       rpy="0 0 0" />
     <parent
-      link="Grip_Base" />
+      link="gripper_base" />
     <child
-      link="Grip_Rotator" />
+      link="glink1" />
     <axis
       xyz="0 0 1" />
     <limit
-      lower="0"
-      upper="0"
       effort="0"
       velocity="0" />
   </joint>
   <link
-    name="Gripper_1">
+    name="glink2">
     <inertial>
       <origin
         xyz="0.00399878118534129 0.0187296413885176 -0.0777776233934166"
@@ -143,15 +141,15 @@
     </collision>
   </link>
   <joint
-    name="open_1"
+    name="gjoint2"
     type="prismatic">
     <origin
       xyz="0 0 0.1071"
       rpy="0 0 1.5708" />
     <parent
-      link="Grip_Rotator" />
+      link="glink1" />
     <child
-      link="Gripper_1" />
+      link="glink2" />
     <axis
       xyz="-1 0 0" />
     <limit
@@ -161,7 +159,7 @@
       velocity="0" />
   </joint>
   <link
-    name="Gripper_2">
+    name="glink3">
     <inertial>
       <origin
         xyz="0.0039988 -0.077778 -0.01873"
@@ -201,15 +199,15 @@
     </collision>
   </link>
   <joint
-    name="open_2"
+    name="gjoint3"
     type="prismatic">
     <origin
       xyz="0 0 0.1071"
       rpy="1.5708 0 -1.5708" />
     <parent
-      link="Grip_Rotator" />
+      link="glink1" />
     <child
-      link="Gripper_2" />
+      link="glink3" />
     <axis
       xyz="-1 0 0" />
     <limit
